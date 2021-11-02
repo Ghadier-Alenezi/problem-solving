@@ -1,14 +1,39 @@
+// const fizzBuzz = (n) => {
+//   for (let i = 1; i < n; i++) {
+//     let x = i;
+//     console.log(x);
+//     if (x % 3 === 0) {
+//         console.log( 'fizz');
+//         { continue; }
+//     }
+//     else if(x % 5 === 0){
+//         console.log('buzz');
+//         { continue; }
+//     }
+//     else if(x % 3 === 0 && x % 5 === 0){
+//         console.log('fizzBuzz');
+//         { continue; }
+//     }
+//   }
+// };
+// fizzBuzz(16);
+
+// I think I need to use switch
 const fizzBuzz = (n) => {
   for (let i = 1; i < n; i++) {
-    if (n % 3 === 0) {
-        return 'fizz';
+    let x = i;
+    switch (true) {
+      case x % 15 === 0:
+        console.log("fizzBuzz");
+        continue;
+      case x % 3 === 0:
+        console.log("fizz");
+        continue;
+      case x % 5 === 0:
+        console.log("buzz");
+        continue;
     }
-    else if(n % 5 === 0){
-        return 'buzz'
-    }
-    else if(n % 3 === 0 && n % 5 === 0){
-        return 'fizzBuzz'
-    }
+    console.log(i);
   }
-  return n;
 };
+fizzBuzz(16);
