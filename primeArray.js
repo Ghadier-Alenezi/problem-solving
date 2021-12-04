@@ -13,7 +13,6 @@ function primes(start, end) {
       primeArr.push(i);
     }
     return primeArr;
-
   }
 }
 primes(1, 10);
