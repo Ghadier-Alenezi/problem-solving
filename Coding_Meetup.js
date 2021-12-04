@@ -4,49 +4,14 @@
 // In case of a tie, include all same-age senior developers listed in the same order as
 // they appeared in the original input array.
 
-const list1 = [
-  {
-    firstName: "Gabriel",
-    lastName: "X.",
-    country: "Monaco",
-    continent: "Europe",
-    age: 49,
-    language: "PHP",
-  },
-  {
-    firstName: "Odval",
-    lastName: "F.",
-    country: "Mongolia",
-    continent: "Asia",
-    age: 38,
-    language: "Python",
-  },
-  {
-    firstName: "Emilija",
-    lastName: "S.",
-    country: "Lithuania",
-    continent: "Europe",
-    age: 19,
-    language: "Python",
-  },
-  {
-    firstName: "Sou",
-    lastName: "B.",
-    country: "Japan",
-    continent: "Asia",
-    age: 49,
-    language: "PHP",
-  },
-];
-
-function findSenior(list1) {
+function findSenior(list) {
 let maxAge = 0;
 let seniorDev = [];
-list1.map((ele) => {
+list.map((ele) => {
   if (ele.age > maxAge) {
     maxAge = ele.age;
   }
-  list1.filter((item) => {
+  list.filter((item) => {
     item.age === maxAge;
     seniorDev = item;
   });
@@ -55,6 +20,6 @@ return seniorDev;
 }
 findSenior(list1);
 
-// list1.reduce((acc, currentValue) => {
+// list.reduce((acc, currentValue) => {
 //   if (acc > currentValue) return acc;
 // }, []);
