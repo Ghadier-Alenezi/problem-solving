@@ -7,13 +7,12 @@ Write a function named `addOne` that takes an array of numbers, and returns a ne
 
 Use `forEach` to loop over the input array and work with each value.  Push the new value into a local array. Return the local array;
 ------------------------------------------------------------------------------------------------ */
-
 const addOne = (arr) => {
-  // Solution code here...
   const newArr = [];
-  arr.forEach(element => {
-    // element
-  });
+   arr.forEach((element, i)=>{
+    newArr.push(element + 1)
+  })
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
