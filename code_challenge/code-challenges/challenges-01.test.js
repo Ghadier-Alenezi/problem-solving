@@ -9,9 +9,9 @@ Use `forEach` to loop over the input array and work with each value.  Push the n
 ------------------------------------------------------------------------------------------------ */
 const addOne = (arr) => {
   const newArr = [];
-   arr.forEach((element)=>{
-    newArr.push(element + 1)
-  })
+  arr.forEach((element) => {
+    newArr.push(element + 1);
+  });
   return newArr;
 };
 
@@ -25,9 +25,9 @@ Use `forEach` to loop over the input array. Modify each string, and add the upda
 
 const addExclamation = (arr) => {
   const newArr = [];
-   arr.forEach((element)=>{
-    newArr.push(element + "!")
-  })
+  arr.forEach((element) => {
+    newArr.push(element + "!");
+  });
   return newArr;
 };
 
@@ -41,10 +41,11 @@ Use `forEach` to loop over the input array. The modified strings should each be 
 
 const allUpperCase = (arr) => {
   const newArr = [];
-   arr.forEach((element)=>{
-    newArr.push(element.toUpperCase())
-  })
-  return newArr;};
+  arr.forEach((element) => {
+    newArr.push(element.toUpperCase());
+  });
+  return newArr;
+};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -57,11 +58,16 @@ Use `forEach` to build a new array of strings, each string modified by the callb
 ------------------------------------------------------------------------------------------------ */
 
 const greeting = (word) => {
-  // Solution code here...
+  const X = word.toUpperCase() + "!";
+  return X;
 };
 
 const speaker = (words, cb) => {
-  // Solution code here...
+  const newArr = [];
+  words.forEach((element) => {
+    newArr.push(cb(element));
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -80,12 +86,10 @@ Within the addNumbers function, invoke the callback function as many times as ne
 Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
-const addValues = (arr, value) => {
-  // Solution code here...
-};
+const addValues = (arr, value) => arr.push(value);
 
 const addNumbers = (num, arr, times, cb) => {
-  // Solution code here...
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
