@@ -89,7 +89,10 @@ Return the modified array.
 const addValues = (arr, value) => arr.push(value);
 
 const addNumbers = (num, arr, times, cb) => {
-  
+  for (let i = 0; i < times; i++) {
+    cb(arr, num);
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
