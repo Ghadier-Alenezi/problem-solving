@@ -117,7 +117,7 @@ const createList = (availableItems) => {
   const list = [];
   availableItems.forEach((element) => {
     if (element.available === true) {
-      list.push(element.name)
+      list.push(element.name);
     }
   });
   return list;
@@ -138,7 +138,14 @@ Return the resulting output array.
 ------------------------------------------------------------------------------------------------ */
 
 const fizzbuzz = (arr) => {
-  // Solution code here...
+  let newArr = [];
+  arr.forEach((element) => {
+    if (element % 5 == 0 && element % 3 == 0) newArr.push("Fizz Buzz");
+    else if (element % 5 == 0) newArr.push("Buzz");
+    else if (element % 3 == 0) newArr.push("Fizz");
+    else newArr.push(element)
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
