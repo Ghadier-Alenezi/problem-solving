@@ -108,11 +108,9 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 
 const alphabetizeBetter = (arr) => {
   // Solution code here...
-  return arr.sort((a, b) =>
-    a.localeCompare(b, { ignorePunctuation: true })
-  );
+  return arr.sort((a, b) => a.localeCompare(b, { ignorePunctuation: true }));
 };
-
+ 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
 
@@ -121,6 +119,7 @@ Write a function named sortByLength that takes in an array of strings and return
 
 const sortByLength = (arr) => {
   // Solution code here...
+  return arr.sort((a,b)=> a.length - b.length)
 };
 
 /* ------------------------------------------------------------------------------------------------
