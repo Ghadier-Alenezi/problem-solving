@@ -108,6 +108,9 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 
 const alphabetizeBetter = (arr) => {
   // Solution code here...
+  return arr.sort((a, b) =>
+    a.localeCompare(b, { ignorePunctuation: true })
+  );
 };
 
 /* ------------------------------------------------------------------------------------------------
