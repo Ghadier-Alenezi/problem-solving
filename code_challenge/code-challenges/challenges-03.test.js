@@ -110,7 +110,7 @@ const alphabetizeBetter = (arr) => {
   // Solution code here...
   return arr.sort((a, b) => a.localeCompare(b, { ignorePunctuation: true }));
 };
- 
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8 - Stretch Goal
 
@@ -119,7 +119,7 @@ Write a function named sortByLength that takes in an array of strings and return
 
 const sortByLength = (arr) => {
   // Solution code here...
-  return arr.sort((a,b)=> a.length - b.length)
+  return arr.sort((a, b) => a.length - b.length);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -132,6 +132,7 @@ For example, [1, 14, 0.2, -281, 54782] is only correctly sorted in that order.
 
 const sortNumbersByLength = (arr) => {
   // Solution code here...
+  return arr.sort((a, b) => String(a).length - String(b).length);
 };
 
 /*-----------------------------------------------------------------------------------------------
