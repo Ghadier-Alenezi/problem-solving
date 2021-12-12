@@ -155,6 +155,9 @@ const people = [
 
 const sortPeople = (arr) => {
   // Solution code here...
+  return arr.sort((a, b) =>
+    a.lastName.localeCompare(b.lastName, { ignorePunctuation: true })
+  );
 };
 
 /* ------------------------------------------------------------------------------------------------
