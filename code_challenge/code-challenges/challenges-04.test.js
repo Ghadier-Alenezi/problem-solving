@@ -8,6 +8,12 @@ Write a function called addTwo that takes in an array and adds two to every valu
 
 const addTwo = (arr) => {
   // Solution code here...
+  const newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i] + 2;
+    newArr.push(element);
+  }
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -19,6 +25,10 @@ Write a function named containsW that takes in a string. This function should us
 
 const containsW = (str) => {
   // Solution code here...
+  for (let i = 0; i < str.length; i++) {
+    if (i !== "w") return false;
+    else return true;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -32,9 +42,15 @@ For example:
 'h3llo world' returns true
 'hello world' returns false
 ------------------------------------------------------------------------------------------------ */
-
 const isNum = (input) => {
+  return /\d/.test(input);
+
   // Solution code here...
+  // const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+  // for (let i = 0; i < input.length; i++) {
+  //   const element = input[i];
+  // return numbers.includes(element);
+  // }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -46,6 +62,7 @@ Write a function named containsWorld that takes in a string or number of any len
 
 const containsWorld = (input) => {
   // Solution code here...
+  return input.includes("world");
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -58,6 +75,14 @@ Return an array containing all the matches.
 
 const isCapitalized = (str) => {
   // Solution code here...
+  const newArr = [];
+  for (let i = 0; i < str.length; i++) {
+    const element = str[i];
+    if (element === element.toUppperCase()) {
+      newArr.push(element);
+    }
+    return newArr;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -83,6 +108,14 @@ Do not use the vertical bar (pipe) in your pattern.
 
 const matchMonth = (input) => {
   // Solution code here...
+  if (
+    input === "October" ||
+    input === "Oct" ||
+    input === "october" ||
+    input === "oct"
+  )
+    return true;
+  else return false;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -97,6 +130,14 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 
 const noPunctuation = (str) => {
   // Solution code here...
+  const newArr = [];
+  for (let i = 0; i < str.length; i++) {
+    const element = str[i];
+    if (`${element} + " "`) {
+      newArr.push(element);
+    }
+    return newArr;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -113,6 +154,10 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 
 let hangman = (str) => {
   // Solution code here...
+  const vowels = [a, e, i, o, u];
+  vowels.forEach((elem) => {
+    return str.replace(elem, "_");
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -130,6 +175,11 @@ const seashells =
 
 const findShells = (str) => {
   // Solution code here...
+  for (let i = 0; i < str.length; i++) {
+    const element = str[i];
+    if(element == "ells")
+    return element
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
