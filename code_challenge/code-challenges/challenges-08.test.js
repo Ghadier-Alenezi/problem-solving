@@ -9,6 +9,9 @@ Write a function named returnTen, takes in a string and uses split and splice to
 
 function returnTen(str) {
   // Solution code here...
+  const newStr = str.split("");
+  // console.log(newStr.splice(newStr.length - 10, 10));
+  return newStr.splice(newStr.length - 10, 10);
 }
 
 /* ------------------------------------------------------------------------------------------------
@@ -21,6 +24,11 @@ For example, typeNum([1, 'bob' ,3]) returns [1,3].
 
 const typeNum = (arr) => {
   // Solution code here...
+  const newArr = [];
+  arr.filter((element) => {
+    if (typeof element == "number") newArr.push(element);
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -33,6 +41,11 @@ For example, containsAnd(['panda', 'ran', 'and']) returns ['panda', 'and'].
 
 const containsAnd = (arr) => {
   // Solution code here...
+  const newArr = [];
+  arr.filter((element) => {
+    if (element.includes("and")) newArr.push(element);
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -45,6 +58,11 @@ For example, oddValues([1,2,3]) returns [1,3].
 
 const oddValues = (arr) => {
   // Solution code here...
+  const newArr = [];
+  arr.filter((element) => {
+    if (element % 2 != 0) newArr.push(element);
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -59,6 +77,13 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 const filterStringsWithVowels = (arr) => {
   // Solution code here...
+  const vowels = ["i", "o", "a", "e", "u"];
+  const vowel = vowels.map((v) => v);
+  const newArr = [];
+  arr.filter((element) => {
+    if (element.includes(vowel)) newArr.push(element);
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -71,6 +96,13 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 
 const notInFirstArray = (forbiddenValues, arr) => {
   // Solution code here...
+  const newArr = [];
+  arr.filter((element) => {
+    if (forbiddenValues.includes(element) == false) {
+      newArr.push(element);
+    }
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -114,6 +146,7 @@ const snorlaxData = {
 
 const getBaseStatGreaterThan = (arr, minBaseStat) => {
   // Solution code here...
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
