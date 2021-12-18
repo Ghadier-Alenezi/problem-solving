@@ -69,10 +69,9 @@ const howMuchPencil = (str) => {
   let result = [];
   // Solution code here...
   for (let i = 0; i <= str.length; i++) {
-    const element = str[i];
-    result.push(str.slice(element, str.length));
+    result.push(str.slice(i, str.length));
   }
-  str.slice(1);
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -129,10 +128,14 @@ const gruffaloCrumble = {
 };
 
 const listFoods = (recipe) => {
-  let result = [];
   // Solution code here...
-  
+  let result = recipe.ingredients.map((elem) => {
+    const str = elem.slice(elem.indexOf(" ") + 1);
+    console.log(str);
 
+    return str.slice(str.indexOf(" ") + 1);
+  });
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -144,8 +147,14 @@ You may also use other string or array methods.
 ------------------------------------------------------------------------------------------------ */
 
 const splitFoods = (recipe) => {
-  let result = [];
   // Solution code here...
+
+  let result = recipe.ingredients.map((item) => {
+    const str = item.split(" ");
+    return str.slice(2).join(" ");
+  });
+
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -159,8 +168,13 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 ------------------------------------------------------------------------------------------------ */
 
 const stepActions = (recipe) => {
-  let result = [];
   // Solution code here...
+
+  let result = recipe.steps.map((step) => {
+    return step.split(" ")[0];
+  });
+
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -178,6 +192,11 @@ For example:
 
 const removeEvenValues = (arr) => {
   // Solution code here...
+  arr.forEach((element) => {
+    if (element % 2 == 0) {
+      return arr.splice(element, 1);
+    }
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -197,6 +216,7 @@ removeLastCharacters('Gregor', 9) returns ''
 
 const removeLastCharacters = (str, numberOfCharacters) => {
   // Solution code here...
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -372,13 +392,13 @@ describe("Testing challenge 8", () => {
 describe("Testing challenge 9", () => {
   test("It should remove the even numbers from the array", () => {
     let list = [1, 2, 3, 4, 5, 6];
-    removeEvenValues(list);
+    removeEvenValues(list).toStrictEqual([1, 3, 5]);
     expect(list).toStrictEqual([1, 3, 5]);
 
     list = [6, 3, 19, 43, 12, 66, 43];
-    removeEvenValues(list);
-    expect(list).toStrictEqual([3, 19, 43, 43]);
-    expect(list.length).toStrictEqual(4);
+    list;
+    expect(removeEvenValues(list)).toStrictEqual([3, 19, 43, 43]);
+    expect(removeEvenValues(list).length).toStrictEqual(4);
   });
 });
 

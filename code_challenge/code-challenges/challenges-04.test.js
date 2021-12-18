@@ -25,10 +25,12 @@ Write a function named containsW that takes in a string. This function should us
 
 const containsW = (str) => {
   // Solution code here...
-  for (let i = 0; i < str.length; i++) {
-    if (i !== "w") return false;
-    else return true;
-  }
+  const regex = /w/;
+  return regex.test(str);
+  // for (let i = 0; i < str.length; i++) {
+  //   if (i !== "w") return false;
+  //   else return true;
+  // }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -68,30 +70,33 @@ const containsWorld = (input) => {
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
-Write a function named isCapitalized that takes in a string. This function should use a regular expression pattern to match all words that begin with a capital letter. It should only match words, not punctuation.
+Write a function named isCapitalized that takes in a string. This function should use a regular expression pattern to match 
+all words that begin with a capital letter. It should only match words, not punctuation.
 
 Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
   // Solution code here...
-  const newArr = [];
-  for (let i = 0; i < str.length; i++) {
-    const element = str[i];
-    if (element === element.toUppperCase()) {
-      newArr.push(element);
-    }
-    return newArr;
-  }
+  let newArr = [];
+  if (str.match(/\b[A-Z].*?\b/g)) newArr = str.match(/\b[A-Z].*?\b/g);
+  // console.log(newArr);
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
-Write a function named citiesAtoJ that takes in an array of city names and uses a regular expression pattern to return a new array containing any cities that begin with the letters A through J, inclusive.
+Write a function named citiesAtoJ that takes in an array of city names and uses a regular expression pattern to return a 
+new array containing any cities that begin with the letters A through J, inclusive.
 ------------------------------------------------------------------------------------------------ */
 const citiesAtoJ = (arr) => {
   // Solution code here...
+  const res = [];
+  arr.forEach((element) => {
+    if (element.split("")[0].match(/\b[A-J].*?\b/g)) res.push(element);
+  });
+  return res;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -130,14 +135,16 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 
 const noPunctuation = (str) => {
   // Solution code here...
-  const newArr = [];
-  for (let i = 0; i < str.length; i++) {
-    const element = str[i];
-    if (`${element} + " "`) {
-      newArr.push(element);
-    }
-    return newArr;
-  }
+
+  return str.match(/[a-z-0-9]+ /gi);
+  // const newArr = [];
+  // for (let i = 0; i < str.length; i++) {
+  //   const element = str[i];
+  //   if (`${element} + " "`) {
+  //     newArr.push(element);
+  //   }
+  //   return newArr;
+  // }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -154,10 +161,11 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 
 let hangman = (str) => {
   // Solution code here...
-  const vowels = [a, e, i, o, u];
-  vowels.forEach((elem) => {
-    return str.replace(elem, "_");
-  });
+  // const vowels = [a, e, i, o, u];
+  // vowels.forEach((elem) => {
+  //   return str.replace(elem, "_");
+  // });
+  return str.replace(/[aeiou]/gi, "_");
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -175,10 +183,8 @@ const seashells =
 
 const findShells = (str) => {
   // Solution code here...
-  for (let i = 0; i < str.length; i++) {
-    const element = str[i];
-    if(element == "ells")
-    return element
+  if (str.match(/\b(sells|shells|seashells)\b/gi)) {
+    return str.match(/\b(sells|shells|seashells)\b/gi);
   }
 };
 

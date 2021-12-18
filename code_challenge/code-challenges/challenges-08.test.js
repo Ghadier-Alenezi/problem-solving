@@ -77,13 +77,7 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 const filterStringsWithVowels = (arr) => {
   // Solution code here...
-  const vowels = ["i", "o", "a", "e", "u"];
-  const vowel = vowels.map((v) => v);
-  const newArr = [];
-  arr.filter((element) => {
-    if (element.includes(vowel)) newArr.push(element);
-  });
-  return newArr;
+  return arr.filter((element) => element.match(/a|e|i|o|u/));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -96,13 +90,7 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 
 const notInFirstArray = (forbiddenValues, arr) => {
   // Solution code here...
-  const newArr = [];
-  arr.filter((element) => {
-    if (forbiddenValues.includes(element) == false) {
-      newArr.push(element);
-    }
-  });
-  return newArr;
+  return arr.filter((element) => !forbiddenValues.includes(element));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -145,8 +133,8 @@ const snorlaxData = {
 };
 
 const getBaseStatGreaterThan = (arr, minBaseStat) => {
-  // Solution code here...
-  
+  // Solution code here..
+  return arr.filter((elem) => elem.baseStat > minBaseStat);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -159,6 +147,10 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 
 const getStatName = (arr, minBaseStat) => {
   // Solution code here...
+  const result = [];
+  const newArr = arr.filter((elem) => elem.baseStat > minBaseStat);
+  newArr.forEach((elem) => result.push(elem.stat.name));
+  return result;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -212,6 +204,7 @@ const characters = [
 
 const getCharactersWithoutChildren = (arr) => {
   // Solution code here...
+  return arr.filter((elem) => !elem.children);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -224,8 +217,10 @@ For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 
 
 const evenOddNumericValues = (arr) => {
   // Solution code here...
+  return arr
+    .filter((ele) => typeof ele === "number")
+    .map((val) => (val % 2 ? "odd" : "even"));
 };
-
 /* ------------------------------------------------------------------------------------------------
 TESTS
 

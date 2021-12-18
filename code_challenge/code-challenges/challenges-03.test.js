@@ -38,7 +38,7 @@ For example: 'Cat' would come before 'apple'
 ------------------------------------------------------------------------------------------------ */
 
 const sortNames = (arr) => {
-  arr.sort();
+  return arr.sort();
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -207,7 +207,16 @@ const meetings = [
 
 const sortMeetingsByDay = (arr) => {
   // Solution code here...
-  
+  const orderDays = {
+    Monday: 1,
+    Tuesday: 2,
+    Wednesday: 3,
+    Thursday: 4,
+    Friday: 5,
+  };
+  return meetings.sort(
+    (a, b) => orderDays[a.dayOfWeek] - orderDays[b.dayOfWeek]
+  );
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -215,13 +224,22 @@ CHALLENGE 13 - Stretch Goal
 
 This challenge should use the array of meetings from challenge 9, above.
 
-Sort the meetings in the order that they start. If two meetings start at the same time on the same day, the shorter meeting should come first.
+Sort the meetings in the order that they start. If two meetings start at the same time on the same day, 
+the shorter meeting should come first.
 
 You DO NOT need to use your solution to Challenge 9 in completing Challenge 10.
 ------------------------------------------------------------------------------------------------ */
 
 const sortSchedule = (arr) => {
   // Solution code here...
+  return sortMeetingsByDay(arr).sort((a, b) => {
+    if (a.dayOfWeek == b.dayOfWeek) {
+      if (a.start == b.start) {
+        return a.end - a.start - (b.end - b.start);
+      }
+      return a.start - b.start;
+    }
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------

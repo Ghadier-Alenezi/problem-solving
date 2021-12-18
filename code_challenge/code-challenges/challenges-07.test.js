@@ -118,11 +118,9 @@ For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 
 const evenOdd = (arr) => {
   // Solution code here...
-  arr.map((element) => {
-    if (typeof element != "number") return "N/A";
-    if (element % 2 === 0) return "even";
-    else return "odd";
-  });
+  return arr.map((element) =>
+    isNaN(element) ? "N/A" : element % 2 === 0 ? "even" : "odd"
+  );
 };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
@@ -220,13 +218,12 @@ const snorlaxStats = {
 
 const extractStats = (arr) => {
   // Solution code here...
-    // console.log(element.stat.name);
+  // console.log(element.stat.name);
   // console.log(element.effort + element.baseStat);
   return arr.map((element) => ({
     name: element.stat.name,
     total: element.effort + element.baseStat,
   }));
-
 };
 
 /* ------------------------------------------------------------------------------------------------

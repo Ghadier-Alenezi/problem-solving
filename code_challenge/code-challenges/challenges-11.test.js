@@ -13,6 +13,9 @@ You can assume that neither firstName nor lastName will be blank
 ------------------------------------------------------------------------------------------------ */
 const toLastNames = (people) => {
   // Solution code here...
+  return people.map((elem) => {
+    return elem.firstName + " " + elem.lastName;
+  });
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -25,6 +28,7 @@ If the PIN is four numerical digits long, return true. Otherwise, return false.
 
 const validatePin = (pin) => {
   // Solution code here...
+  return pin.toString().match(/^(\d){4}$/) !== null;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -37,6 +41,7 @@ If the word is between 5 and 10 characters long, return true. Otherwise, return 
 
 const validateWord = (word) => {
   // Solution code here...
+  return word.toString().match(/^([a-zA-Z]){5,10}$/) !== null;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -48,7 +53,7 @@ If it does, return true. If not, return false.
 ------------------------------------------------------------------------------------------------ */
 
 const hasNumber = (string) => {
-  // Solution code here...
+  return string.toString().match(/\D\d/i) !== null;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -69,6 +74,11 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 
 const validateEmail = (email) => {
   // Solution code here...
+  return (
+    String(email)
+      .toLowerCase()
+      .match(/^(\w+|\w+.\w+)@\w+(.net|.com|.org)$/g) !== null
+  );
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -94,6 +104,13 @@ Return either true or false.
 
 const validatePhoneNumber = (phoneNumber) => {
   // Solution code here...
+  return (
+    phoneNumber
+      .toString()
+      .match(
+        /^(\(\d{3}\)(\s\d{3}-\d{4}|\d{3}\s\d{4})|\d{3}\s(\d{3}-\d{4}|\d{3}\s\d{4})|\d{3}-(\d{7}|\d{3}\s\d{4}|\d{3}-\d{4})|\d{6}-\d{4}|\d{10}|\d{3}\s\d{7})$/
+      ) !== null
+  );
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -107,6 +124,10 @@ findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>'])
 
 const findTagNames = (elements) => {
   // Solution code here...
+  return elements
+  .map((ele) => ele.match(/\/.+?(?=>)/g))
+  .join(",")
+  .split(",");
 };
 
 /* ------------------------------------------------------------------------------------------------
